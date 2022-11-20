@@ -1,29 +1,32 @@
-<h2>Sign up</h2>
+<head>
+  <link href="signup.scss" rel="stylesheet">
+</head>
+<body class="text-center"> 
+  <main class="form-signup">
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <img class="mb-4" src="/assets/fishing.png" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-floating">
+        <%= f.text_field :nickname, class:"form-control", id:"floatingNickname", placeholder:"Nickname", autofocus: true, maxlength: "12" %>
+        <%= f.label "nickname(maxlength:12)" %> 
+      <div class="form-floating">
+        <%= f.email_field :email, class:"form-control", id:"floatingInput", placeholder:"Email adress" %>
+        <%= f.label :email %>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password, class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+        <%= f.label "password(minimumlength:6)" %>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password_confirmation, class:"form-control", id:"floatingPassword", placeholder:"Passwordconfirmation" %>
+        <%= f.label :password_confirmation %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class='login-btn'>
+        <%= f.submit "新規登録" ,class:"w-100 btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </main>
+</body>
