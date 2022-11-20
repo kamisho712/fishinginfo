@@ -23,7 +23,7 @@
 |Column         |Type       |Options                        |
 |---------------|-----------|-------------------------------|
 |aria           |integer    |null: false                    |
-|detail_area    |integer    |                               |
+|detail_area    |string     |                               |
 |fish_type      |string     |                               |
 |fish_catch     |string     |                               |
 |date and time  |string     |                               |
